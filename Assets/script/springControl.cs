@@ -6,10 +6,7 @@ public class springControl : MonoBehaviour
 {
     public GameObject character;
     public GameObject springPlatform;
-    public GameObject springPlatformSmall;
-    public GameObject normalPlatform;
-    private GameObject platformNow;
-    private GameObject settedPlatform;
+    public GameObject fanPlatform;
     // Start is called before the first frame update
     void Start()
     {
@@ -55,30 +52,8 @@ public class springControl : MonoBehaviour
             mousePosOnScreen.z = screenPos.z;
             Vector3 mousePosInWorld = Camera.main.ScreenToWorldPoint(mousePosOnScreen);
             mousePosInWorld.x = 0;
-            mousePosInWorld.z += 2;
-            GameObject.Instantiate(springPlatformSmall, mousePosInWorld, Quaternion.identity);
-        }
-        if (Input.GetKeyDown("3"))
-        {
-            Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.position);
-            Vector3 mousePosOnScreen = Input.mousePosition;
-            mousePosOnScreen.z = screenPos.z;
-            Vector3 mousePosInWorld = Camera.main.ScreenToWorldPoint(mousePosOnScreen);
-            mousePosInWorld.x = 0;
-            mousePosInWorld.z += 2;
-            GameObject.Instantiate(normalPlatform, mousePosInWorld, Quaternion.identity);
-        }
-    }
-    public void setPlatform(GameObject platform)
-    {
-        platformNow = platform;
-    }
-
-    public void removePlatform()
-    {
-        if (!platformNow)
-        {
-            platformNow = null;
+            mousePosInWorld.z += 0;
+            GameObject.Instantiate(fanPlatform, mousePosInWorld, Quaternion.identity);
         }
     }
 }
