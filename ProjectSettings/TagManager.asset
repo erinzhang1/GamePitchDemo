@@ -9,6 +9,7 @@ TagManager:
   - addNew
   - Fan
   - Running
+  - FanLeft
   layers:
   - Default
   - TransparentFX

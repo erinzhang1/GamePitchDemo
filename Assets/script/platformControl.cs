@@ -8,6 +8,8 @@ public class platformControl : MonoBehaviour
     public GameObject springPlatform;
     public GameObject fanPlatform;
     public GameObject fanPlatformLeft;
+
+    private GameObject newlyCreated;
     // Start is called before the first frame update
     void Start()
     {
@@ -44,7 +46,7 @@ public class platformControl : MonoBehaviour
             Vector3 mousePosInWorld = Camera.main.ScreenToWorldPoint(mousePosOnScreen);
             mousePosInWorld.x = 0;
             mousePosInWorld.z += 2;
-            GameObject.Instantiate(springPlatform, mousePosInWorld, Quaternion.identity);
+            newlyCreated = GameObject.Instantiate(springPlatform, mousePosInWorld, Quaternion.identity);
         }
         if (Input.GetKeyDown("2"))
         {
@@ -54,7 +56,7 @@ public class platformControl : MonoBehaviour
             Vector3 mousePosInWorld = Camera.main.ScreenToWorldPoint(mousePosOnScreen);
             mousePosInWorld.x = 0;
             mousePosInWorld.z += 0;
-            GameObject.Instantiate(fanPlatform, mousePosInWorld, Quaternion.identity);
+            newlyCreated = GameObject.Instantiate(fanPlatform, mousePosInWorld, Quaternion.identity);
         }
         if (Input.GetKeyDown("3"))
         {
@@ -64,7 +66,11 @@ public class platformControl : MonoBehaviour
             Vector3 mousePosInWorld = Camera.main.ScreenToWorldPoint(mousePosOnScreen);
             mousePosInWorld.x = 0;
             mousePosInWorld.z += 0;
-            GameObject.Instantiate(fanPlatformLeft, mousePosInWorld, Quaternion.Euler(-90f, 0f, 0f));
+            newlyCreated = GameObject.Instantiate(fanPlatformLeft, mousePosInWorld, Quaternion.Euler(-90f, 0f, 0f));
+        }
+        if (Input.GetKeyDown("q"))
+        {
+            GameObject.Destroy(newlyCreated);
         }
     }
 }

@@ -8,9 +8,9 @@ public class characterMove : MonoBehaviour
     public Vector3 jump = new Vector3(0, 1, 0);
     public Vector3 move = new Vector3(0, 0, 1);
     public Vector3 fanLeft = new Vector3(-1, 0, 0);
-    public const float jumpForce = 3f;
+    public const float jumpForce = 1f;
     public const float fanForce = 20f;
-    public const float fanForceLeft = 100f;
+    // public const float fanForceLeft = 100f;
     public const float movementSpeed = 5;
     private platformControl platformControl;
 
@@ -43,7 +43,7 @@ public class characterMove : MonoBehaviour
             if (characterMode == "Running")
             {
                 characterMode = "OnWind";
-                transform.position += move * Time.deltaTime * movementSpeed;
+                transform.position += move * Time.deltaTime * movementSpeed * 5;
             }
             rb.velocity = new Vector3(0, 0, 0);
         }
