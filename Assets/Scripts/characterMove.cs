@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,7 @@ public class characterMove : MonoBehaviour
     public const float jumpForceSmall = 3f;
     public const float movementSpeed = 8;
     private springControl springControl;
+    public bool characterHasKey = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -43,5 +45,10 @@ public class characterMove : MonoBehaviour
     void FixedUpdate()
     {
         transform.position += move * Time.deltaTime * movementSpeed;
+    }
+
+    public void UpdateKey()
+    {
+        characterHasKey = true;
     }
 }
