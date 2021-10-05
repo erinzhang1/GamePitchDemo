@@ -55,8 +55,8 @@
   <ItemGroup>
     <Compile Include="Assets\script\characterMove.cs" />
     <Compile Include="Assets\script\animation.cs" />
-    <Compile Include="Assets\script\springControl.cs" />
     <Compile Include="Assets\script\fanControl.cs" />
+    <Compile Include="Assets\script\platformControl.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

@@ -7,44 +7,77 @@ public class characterMove : MonoBehaviour
     Rigidbody rb;
     public Vector3 jump = new Vector3(0, 1, 0);
     public Vector3 move = new Vector3(0, 0, 1);
+    public Vector3 fanLeft = new Vector3(-1, 0, 0);
     public const float jumpForce = 3f;
-    public const float fanForce = 1f;
+    public const float fanForce = 20f;
+    public const float fanForceLeft = 100f;
     public const float movementSpeed = 5;
-    private springControl springControl;
+    private platformControl platformControl;
 
-    private bool running = true;
+    private string characterMode = "Running";
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        springControl = GameObject.FindObjectOfType<springControl>();
+        platformControl = GameObject.FindObjectOfType<platformControl>();
     }
     void OnCollisionStay(Collision coll)
     {
-        running = true;
         if (coll.gameObject.tag == "Spring")
         {
+            characterMode = "Running";
             rb.AddForce(jump * jumpForce, ForceMode.Impulse);
             animation animation = coll.gameObject.GetComponent<animation>();
             animation.startAni();
         }
+        if (coll.gameObject.tag == "Running")
+        {
+            characterMode = "Running";
+        }
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        running = true;
         if (other.gameObject.tag == "Fan")
         {
-            float distance = Vector3.Distance(other.gameObject.transform.position, transform.position);
-            running = false;
-            rb.AddForce(jump * fanForce / distance, ForceMode.Impulse);
+            if (characterMode == "Running")
+            {
+                characterMode = "OnWind";
+                transform.position += move * Time.deltaTime * movementSpeed;
+            }
+            rb.velocity = new Vector3(0, 0, 0);
+        }
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        // running = true;
+        if (other.gameObject.tag == "Fan")
+        {
+            float distance = Mathf.Abs(other.gameObject.transform.position.y - transform.position.y);
+            characterMode = "OnWind";
+            rb.AddForce(jump * fanForce / distance, ForceMode.Force);
+        }
+        if (other.gameObject.tag == "FanLeft")
+        {
+            // float distance = Mathf.Abs(other.gameObject.transform.position.z - transform.position.z);
+            // Debug.Log(fanLeft * fanForceLeft / distance);
+            // rb.AddForce(fanLeft * fanForceLeft / distance, ForceMode.VelocityChange);
+            rb.velocity = new Vector3(0, 0, -10);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "FanLeft")
+        {
+            characterMode = "Running";
         }
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (running)
+        if (characterMode == "Running")
         {
             transform.position += move * Time.deltaTime * movementSpeed;
         }

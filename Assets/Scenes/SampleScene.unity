@@ -414,7 +414,7 @@ GameObject:
   - component: {fileID: 560949841}
   - component: {fileID: 560949840}
   m_Layer: 0
-  m_Name: springLogic
+  m_Name: platformControl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3460,7 +3460,7 @@ GameObject:
   - component: {fileID: 543450651580071798}
   m_Layer: 0
   m_Name: Platform_Lvl1
-  m_TagString: Untagged
+  m_TagString: Running
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

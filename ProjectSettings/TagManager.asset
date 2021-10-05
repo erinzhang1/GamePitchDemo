@@ -8,6 +8,7 @@ TagManager:
   - SpringSmall
   - addNew
   - Fan
+  - Running
   layers:
   - Default
   - TransparentFX
