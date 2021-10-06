@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class springControl : MonoBehaviour
+public class platformControl : MonoBehaviour
 {
     public GameObject character;
     public GameObject springPlatform;
-    public GameObject springPlatformSmall;
-    public GameObject normalPlatform;
-    private GameObject platformNow;
-    private GameObject settedPlatform;
+    public GameObject fanPlatform;
+    public GameObject fanPlatformLeft;
+
+    private GameObject newlyCreated;
     // Start is called before the first frame update
     void Start()
     {
@@ -46,7 +46,7 @@ public class springControl : MonoBehaviour
             Vector3 mousePosInWorld = Camera.main.ScreenToWorldPoint(mousePosOnScreen);
             mousePosInWorld.x = 0;
             mousePosInWorld.z += 2;
-            GameObject.Instantiate(springPlatform, mousePosInWorld, Quaternion.identity);
+            newlyCreated = GameObject.Instantiate(springPlatform, mousePosInWorld, Quaternion.identity);
         }
         if (Input.GetKeyDown("2"))
         {
@@ -55,8 +55,8 @@ public class springControl : MonoBehaviour
             mousePosOnScreen.z = screenPos.z;
             Vector3 mousePosInWorld = Camera.main.ScreenToWorldPoint(mousePosOnScreen);
             mousePosInWorld.x = 0;
-            mousePosInWorld.z += 2;
-            GameObject.Instantiate(springPlatformSmall, mousePosInWorld, Quaternion.identity);
+            mousePosInWorld.z += 0;
+            newlyCreated = GameObject.Instantiate(fanPlatform, mousePosInWorld, Quaternion.identity);
         }
         if (Input.GetKeyDown("3"))
         {
@@ -65,20 +65,12 @@ public class springControl : MonoBehaviour
             mousePosOnScreen.z = screenPos.z;
             Vector3 mousePosInWorld = Camera.main.ScreenToWorldPoint(mousePosOnScreen);
             mousePosInWorld.x = 0;
-            mousePosInWorld.z += 2;
-            GameObject.Instantiate(normalPlatform, mousePosInWorld, Quaternion.identity);
+            mousePosInWorld.z += 0;
+            newlyCreated = GameObject.Instantiate(fanPlatformLeft, mousePosInWorld, Quaternion.Euler(-90f, 0f, 0f));
         }
-    }
-    public void setPlatform(GameObject platform)
-    {
-        platformNow = platform;
-    }
-
-    public void removePlatform()
-    {
-        if (!platformNow)
+        if (Input.GetKeyDown("q"))
         {
-            platformNow = null;
+            GameObject.Destroy(newlyCreated);
         }
     }
 }
