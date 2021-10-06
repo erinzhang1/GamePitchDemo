@@ -359,7 +359,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fast_Run
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2223639932434330405, guid: ae694abbc6b0d409696ef3468437070a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ae694abbc6b0d409696ef3468437070a, type: 3}
 --- !u!1 &518595998 stripped
 GameObject:
@@ -537,7 +538,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 3237e7e03d7d64881b5313062409a495, type: 3}
+  m_audioClip: {fileID: 8300000, guid: b01d96dc5229bd74ab8a61b6e1c5bfc0, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.1
   m_Pitch: 1
@@ -642,6 +643,25 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: ae694abbc6b0d409696ef3468437070a, type: 3}
   m_PrefabInstance: {fileID: 475970352}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1511932449
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1511932448}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7e7c0e01c9f3c74409b696edea8bfb6a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &1511932450 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ae694abbc6b0d409696ef3468437070a, type: 3}

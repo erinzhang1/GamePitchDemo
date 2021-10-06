@@ -14,12 +14,16 @@ public class characterMove : MonoBehaviour
     public const float movementSpeed = 5;
     private platformControl platformControl;
 
-    private string characterMode = "Running";
+    private string characterMode = "Stop";
+    private Animator _animator;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        _animator = GetComponent<Animator>();
         platformControl = GameObject.FindObjectOfType<platformControl>();
+
+        _animator.enabled = false;
     }
     void OnCollisionStay(Collision coll)
     {
@@ -77,6 +81,12 @@ public class characterMove : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (Input.GetKeyDown("e"))
+        {
+            Debug.Log("E!!!");
+            characterMode = "Running";
+            _animator.enabled = true;
+        }
         if (characterMode == "Running")
         {
             transform.position += move * Time.deltaTime * movementSpeed;
