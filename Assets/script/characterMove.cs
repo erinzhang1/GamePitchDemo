@@ -79,14 +79,16 @@ public class characterMove : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    private void Update()
     {
         if (Input.GetKeyDown("e"))
         {
-            Debug.Log("E!!!");
             characterMode = "Running";
             _animator.enabled = true;
         }
+    }
+    void FixedUpdate()
+    {
         if (characterMode == "Running")
         {
             transform.position += move * Time.deltaTime * movementSpeed;
