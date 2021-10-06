@@ -5,7 +5,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637690967118871373
+      ticks: 637691369850363182
     m_Hash: 3531869884
   m_LockFileStatus:
     m_FilePath: D:/CSC404/GamePitchDemo/Packages/packages-lock.json
@@ -13,7 +13,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637690967118881373
+      ticks: 637691369850373188
     m_Hash: 51398154
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}

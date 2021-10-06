@@ -16,6 +16,7 @@ public class characterMove : MonoBehaviour
 
     private string characterMode = "Stop";
     private Animator _animator;
+    private switchCamera switchCamera;
     
     public bool characterHasKey = false;
     // Start is called before the first frame update
@@ -24,6 +25,7 @@ public class characterMove : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         _animator = GetComponent<Animator>();
         platformControl = GameObject.FindObjectOfType<platformControl>();
+        switchCamera = GameObject.FindObjectOfType<switchCamera>();
 
         _animator.enabled = false;
     }
@@ -80,13 +82,19 @@ public class characterMove : MonoBehaviour
         }
     }
 
+    private void startGame()
+    {
+        characterMode = "Running";
+        _animator.enabled = true;
+        switchCamera.startGameCamera();
+    }
+
     // Update is called once per frame
     private void Update()
     {
         if (Input.GetKeyDown("e"))
         {
-            characterMode = "Running";
-            _animator.enabled = true;
+            startGame();
         }
     }
     void FixedUpdate()

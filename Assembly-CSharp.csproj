@@ -53,11 +53,15 @@
     <UnityVersion>2020.3.19f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Assets\script\goal.cs" />
     <Compile Include="Assets\script\characterMove.cs" />
+    <Compile Include="Assets\script\SetupCameraLogic.cs" />
     <Compile Include="Assets\script\animation.cs" />
     <Compile Include="Assets\script\fanControl.cs" />
     <Compile Include="Assets\script\platformControl.cs" />
-    <Compile Include="Assets\script\goal.cs" />
+    <Compile Include="Assets\script\switchCamera.cs" />
+    <Compile Include="Assets\script\KeyHit.cs" />
+    <Compile Include="Assets\script\DoorHit.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
