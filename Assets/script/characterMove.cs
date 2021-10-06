@@ -16,6 +16,8 @@ public class characterMove : MonoBehaviour
 
     private string characterMode = "Stop";
     private Animator _animator;
+    
+    public bool characterHasKey = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -93,5 +95,10 @@ public class characterMove : MonoBehaviour
         {
             transform.position += move * Time.deltaTime * movementSpeed;
         }
+    }
+    
+    public void UpdateKey()
+    {
+        characterHasKey = true;
     }
 }
